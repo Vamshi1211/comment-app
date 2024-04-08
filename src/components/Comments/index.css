@@ -1,0 +1,189 @@
+/* Write your CSS here */
+.bg-container {
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-left: 40px;
+  padding-bottom: 80px;
+}
+@media screen and (min-width: 768px) {
+  .bg-container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1220px;
+  border-bottom: 2px solid #cbd2d9;
+  padding-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.comment-top-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-heading {
+  color: #1e293b;
+  font-family: 'Roboto';
+  font-size: 28px;
+  font-weight: 900;
+}
+@media screen and (min-width: 768px) {
+  .comment-heading {
+    font-size: 42px;
+  }
+}
+
+.comment-image-1 {
+  width: 70%;
+}
+@media screen and (min-width: 768px) {
+  .comment-image-1 {
+    display: none;
+  }
+}
+
+.comment-description {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 900;
+}
+@media screen and (min-width: 768px) {
+  .comment-description {
+    font-size: 28px;
+  }
+}
+
+.comment-image-2 {
+  display: none;
+  width: 45%;
+  margin-left: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .comment-image-2 {
+    display: inline;
+    align-self: center;
+  }
+}
+
+.your-name {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border: 2px solid #dee0e3;
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .your-name {
+    font-size: 18px;
+    max-width: 400px;
+  }
+}
+
+.your-comment {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border: 2px solid #dee0e3;
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .your-comment {
+    font-size: 18px;
+    max-width: 400px;
+  }
+}
+
+.add-button {
+  background-color: #0284c7;
+  color: #dee0e3;
+  font-family: 'Roboto';
+  font-size: 14px;
+  width: 80%;
+  max-width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .add-button {
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+  }
+}
+
+.count {
+  height: 30px;
+  width: 30px;
+  background-color: #0284c7;
+  color: #dee0e3;
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .count {
+    height: 40px;
+    width: 40px;
+    padding-top: 9px;
+    font-size: 18px;
+  }
+}
+
+.count-container {
+  display: flex;
+}
+
+.count-comments-heading {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 10px;
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  .count-comments-heading {
+    font-size: 22px;
+    margin-left: 20px;
+  }
+}
+
+.list-comment-container {
+  list-style-type: none;
+  padding-left: 0px;
+}
