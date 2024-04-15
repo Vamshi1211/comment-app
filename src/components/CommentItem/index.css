@@ -28,8 +28,13 @@
 
 /* Write your CSS here */
 
+.list-container {
+  width: 90%;
+  border-bottom: 2px solid #cbd2d9;
+}
+
 .logo-name {
-  color: #dee0e3;
+  color: #cbd2d9;
   font-family: 'Roboto';
   height: 40px;
   width: 40px;
@@ -45,4 +50,109 @@
     padding-top: 16px;
     font-size: 24px;
   }
+}
+
+.logo-and-name-container {
+  display: flex;
+  /* border: 1px solid blue; */
+}
+
+.name {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin-right: 10px;
+  /* border: 2px solid red; */
+}
+@media screen and (min-width: 768px) {
+  .name {
+    font-size: 20px;
+    margin-right: 20px;
+  }
+}
+
+.date-in-mins {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  align-self: center;
+}
+.comment {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.name-comment-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 90%;
+  /* border: 2px solid yellow; */
+}
+
+@media screen and (min-width: 768px) {
+  .name-comment-container {
+    width: 90%;
+  }
+}
+
+.name-time-container {
+  display: flex;
+  margin-top: 15px;
+  width: 90%;
+  /* border: 2px solid green; */
+}
+
+.like-delete-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-image-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.like-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .like-button {
+    margin-right: 15px;
+  }
+}
+
+.like-image {
+  height: 25px;
+}
+
+.like {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.liked {
+  color: #0ea5e9;
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.delete-button {
+  background-color: transparent;
+  padding-left: 5px;
+  padding-right: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }

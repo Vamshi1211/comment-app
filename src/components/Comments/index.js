@@ -15,44 +15,83 @@ const initialContainerBackgroundClassNames = [
 
 // Write your code here
 
-const commentList = []
+// const {length} = initialContainerBackgroundClassNames
+// const randomColor = Math.ceil(Math.random() * length)
 
 class Comments extends Component {
-  state = {newCommentList: commentList, name: '', comment: ''}
+  state = {
+    newCommentList: [],
+    nameInput: '',
+    commentInput: '',
+  }
 
   onChangeInputValue = event => {
-    this.setState({name: event.target.value})
+    this.setState({nameInput: event.target.value})
   }
 
   onChangeTextArea = event => {
-    this.setState({comment: event.target.value})
+    this.setState({commentInput: event.target.value})
   }
 
-  onClickAddButton = () => {
-    const {name, comment} = this.state
+  onClickAddButton = event => {
+    event.preventDefault()
+    const {nameInput, commentInput} = this.state
+
+    const initialBackgroundColorClassName = `initial-container ${
+      initialContainerBackgroundClassNames[
+        Math.ceil(
+          Math.random() * initialContainerBackgroundClassNames.length - 1,
+        )
+      ]
+    }`
 
     const newComment = {
       id: uuidv4(),
-      name,
-      comment,
+      name: nameInput,
+      comment: commentInput,
+      date: new Date(),
+      isLiked: false,
+      initialClassName: initialBackgroundColorClassName,
     }
     this.setState(prevState => ({
       newCommentList: [...prevState.newCommentList, newComment],
+      nameInput: '',
+      commentInput: '',
+    }))
+  }
+
+  onDeleteItem = uniqueId => {
+    this.setState(prevState => ({
+      newCommentList: prevState.newCommentList.filter(
+        eachItem => eachItem.id !== uniqueId,
+      ),
+    }))
+  }
+
+  onLike = uniqueId => {
+    this.setState(prevState => ({
+      newCommentList: prevState.newCommentList.map(eachItem => {
+        if (eachItem.id === uniqueId) {
+          return {...eachItem, isLiked: !eachItem.isLiked}
+        }
+        return eachItem
+      }),
     }))
   }
 
   render() {
-    const {newCommentList, name, comment} = this.state
-    console.log(newCommentList)
-    console.log(name)
-    console.log(comment)
+    const {newCommentList, nameInput, commentInput} = this.state
+
     return (
       <div className="bg-container">
         <div className="app-container">
-          <div className="comment-top-container">
+          <form
+            className="comment-top-container"
+            onSubmit={this.onClickAddButton}
+          >
             <h1 className="comment-heading">Comments</h1>
             <img
-              src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png "
+              src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
               alt="comments"
               className="comment-image-1"
             />
@@ -64,7 +103,7 @@ class Comments extends Component {
               placeholder="Your Name"
               className="your-name"
               onChange={this.onChangeInputValue}
-              value={name}
+              value={nameInput}
             />
             <textarea
               type="text"
@@ -73,26 +112,22 @@ class Comments extends Component {
               rows="8"
               cols="55"
               onChange={this.onChangeTextArea}
-              value={comment}
+              value={commentInput}
             >
-              {comment}
+              {commentInput}
             </textarea>
-            <button
-              type="button"
-              className="add-button"
-              onClick={this.onClickAddButton}
-            >
-              Add Button
+            <button type="submit" className="add-button">
+              Add Comment
             </button>
-          </div>
+          </form>
           <img
-            src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png "
+            src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
             alt="comments"
             className="comment-image-2"
           />
         </div>
         <div className="count-container">
-          <p className="count">0</p>
+          <p className="count">{newCommentList.length}</p>
           <p className="count-comments-heading">Comments</p>
         </div>
         <ul className="list-comment-container">
@@ -100,7 +135,8 @@ class Comments extends Component {
             <CommentItem
               key={eachItem.id}
               eachCommentItem={eachItem}
-              backgroundColors={initialContainerBackgroundClassNames}
+              onDeleteItem={this.onDeleteItem}
+              onLike={this.onLike}
             />
           ))}
         </ul>
